@@ -102,10 +102,13 @@ while True:
         print("Geçersiz seçim yaptınız! Tekrar deneyiniz!")
         x = int(input("Zaman aralığını seçiniz:\n1) 5 dakika\n2)15 dakika\n3) 1 saat\n4) 4 saat\n5) 1 gün\nSeçiminiz: "))
 
-    now = datetime.now()
-    if now.minute % 5 == 0:
-        print("\n---------İşlem başlatıldı---------")
-        search(intervals[x-1])
+
+    while True:
+        now = datetime.now()
+        if now.minute % 5 == 0:
+            print("\n---------İşlem başlatıldı---------")
+            search(intervals[x-1])
+        break
 
     x = int(input("Ne yapmak istiyorsunuz!\n1) Devam et\n2) Çık\nSeçiminiz: "))
     while x < 1 or x > 2:
