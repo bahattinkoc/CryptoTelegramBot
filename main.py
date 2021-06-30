@@ -99,15 +99,15 @@ def search(interval):
 while True:
     x = int(input("Zaman aralığını seçiniz:\n1) 5 dakika\n2) 15 dakika\n3) 1 saat\n4) 4 saat\n5) 1 gün\nSeçiminiz: "))
     while x < 1 or x > 5:
-        print("Geçersiz seçim yaptınız! Tekrar deneyiniz!")
+        print("\nGeçersiz seçim yaptınız! Tekrar deneyiniz!")
         x = int(input("Zaman aralığını seçiniz:\n1) 5 dakika\n2)15 dakika\n3) 1 saat\n4) 4 saat\n5) 1 gün\nSeçiminiz: "))
 
     print("\n---------İşlem başlatıldı---------")
     search(intervals[x-1])
-    
+
     x = int(input("\nNe yapmak istiyorsunuz!\n1) Devam et\n2) Çık\nSeçiminiz: "))
     while x < 1 or x > 2:
-        print("Geçersiz seçim yaptınız! Tekrar deneyiniz!")
+        print("\nGeçersiz seçim yaptınız! Tekrar deneyiniz!")
         x = int(input("Ne yapmak istiyorsunuz!\n1) Devam et\n2) Çık\nSeçiminiz: "))
 
     if x == 2:
