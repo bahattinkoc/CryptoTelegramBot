@@ -5,3 +5,5 @@ https://api.telegram.org/bot<TELEGRAM-API>/getUpdates
 
 # telegram yazı şekilleri
 https://core.telegram.org/bots/api#formatting-options
+
+https://api.telegram.org/{bot_id}/sendMessage

@@ -2,7 +2,6 @@
 import talib
 import numpy as np
 import CryptoData as cd
-from talib import MA_Type
 import telegram_bot as tbot
 from datetime import datetime
 
@@ -22,7 +21,11 @@ symbols = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'DOGEUSDT', 'XRPUSDT', 'D
            'SRMUSDT', 'SANDUSDT', 'BTSUSDT', 'BALUSDT', 'ALPHAUSDT', 'TOMOUSDT']
 
 
-intervals = [cd.client.KLINE_INTERVAL_5MINUTE, cd.client.KLINE_INTERVAL_15MINUTE, cd.client.KLINE_INTERVAL_1HOUR, cd.client.KLINE_INTERVAL_4HOUR, cd.client.KLINE_INTERVAL_1DAY]
+intervals = [cd.client.KLINE_INTERVAL_5MINUTE,
+             cd.client.KLINE_INTERVAL_15MINUTE,
+             cd.client.KLINE_INTERVAL_1HOUR,
+             cd.client.KLINE_INTERVAL_4HOUR,
+             cd.client.KLINE_INTERVAL_1DAY]
 
 def search(interval):
     print("LOG: Sorgulama başladı! -> Zaman aralığı:", interval)
@@ -66,19 +69,19 @@ def search(interval):
 
             #Bollinger Bandın ekle
             if data_close[-1] <= bb_lower[-1]: # alt banda geldi yukarı gidebilir
-                message = message + "\n📉 *Sinyal Tipi:* BOL.BANDI ALT SINIRDA!!"
+                message = message + "\n📉 *Sinyal Tipi:* BB ALT SINIRDA!!"
                 messageSend = True
             elif data_close[-1] >= bb_upper[-1]: # üst banda geldi aşağı inebilir
-                message = message + "\n📈 *Sinyal Tipi:* BOL.BANDI ÜST SINIRDA!!"
+                message = message + "\n📈 *Sinyal Tipi:* BB ÜST SINIRDA!!"
                 messageSend = True
             ###########################
 
             # RSI
             if rsi[-1] < 25:
-                message = message + "\n🟡 *Sinyal Tipi:* RSI AŞIRI SATIM!!\n*RSI:* " + str(rsi[-1])
+                message = message + "\n🔴 *Sinyal Tipi:* RSI AŞIRI SATIM!!\n*RSI:* " + str(rsi[-1])
                 messageSend = True
             elif rsi[-1] > 75:
-                message = message + "\n🔴 *Sinyal Tipi:* RSI AŞIRI ALIM!!\n*RSI:* " + str(rsi[-1])
+                message = message + "\n🟡 *Sinyal Tipi:* RSI AŞIRI ALIM!!\n*RSI:* " + str(rsi[-1])
                 messageSend = True
             ###########################
 
@@ -95,22 +98,21 @@ def search(interval):
         except ValueError:
                 print(symbol, "-> Mesaj gönderilir iken bir hata meydana geldi!!\nHata nedeni:", ValueError)
 
-
+x = 0
+y = 0
 while True:
-    x = int(input("Zaman aralığını seçiniz:\n1) 5 dakika\n2) 15 dakika\n3) 1 saat\n4) 4 saat\n5) 1 gün\nSeçiminiz: "))
     while x < 1 or x > 5:
-        print("\nGeçersiz seçim yaptınız! Tekrar deneyiniz!")
-        x = int(input("Zaman aralığını seçiniz:\n1) 5 dakika\n2)15 dakika\n3) 1 saat\n4) 4 saat\n5) 1 gün\nSeçiminiz: "))
+        x = int(input("\nZaman aralığını seçiniz:\n1) 5 dakika\n2) 15 dakika\n3) 1 saat\n4) 4 saat\n5) 1 gün\nSeçiminiz: "))
 
     print("\n---------İşlem başlatıldı---------")
     search(intervals[x-1])
 
-    x = int(input("\nNe yapmak istiyorsunuz!\n1) Devam et\n2) Çık\nSeçiminiz: "))
-    while x < 1 or x > 2:
-        print("\nGeçersiz seçim yaptınız! Tekrar deneyiniz!")
-        x = int(input("Ne yapmak istiyorsunuz!\n1) Devam et\n2) Çık\nSeçiminiz: "))
+    while y < 1 or y > 3:
+        y = int(input("\nNe yapmak istiyorsunuz!\n1) Listeyi gör\n2) Önceki işlemi döngüye al\n3) Çık\nSeçiminiz: "))
 
-    if x == 2:
+    if y == 3:
         break
+    if y == 1:
+        x = 0
 
 
