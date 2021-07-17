@@ -2,7 +2,8 @@ import config
 from binance import Client
 
 # Binance API ile giriş yapıldı
-client = Client(config.API_KEY, config.API_SECRET)
+# client = Client(config.API_KEY, config.API_SECRET)
+client = Client()
 
 # Tarih girilerek istenen mum bilgileri
 def get_parite_list_historical(trade, interval, startDate):
