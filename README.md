@@ -1,3 +1,4 @@
+
 <br />
 <p align="center">
    <a href="https://github.com/othneildrew/Best-README-Template">
@@ -7,43 +8,42 @@
   <h1 align="center">Crypto Telegram Bot</h1>
 
   <p align="center">
-    Finansal Özgürlük
+    Financial Freedom
 </p>
 
-# Hakkında
+# About
 
-CTB, içerisinde barındırdığı kütüphaneler ile kripto paralara ait göstergeleri inceler ve teknik analizlerini yapar daha sonrasında eğer sinyal oluşuyorsa bunları bir taslak halinde telegram grubunda paylaşır. 
+CTB (Crypto Telegram Bot) analyzes cryptocurrency indicators and performs technical analysis using various built-in libraries. If a signal is generated, it shares the information as a draft in the designated Telegram group.
 
-# Kurulum
+# Installation
 
-* Kodlarımızı Python dilinde yazdığımız için için öncelikle bilgisayarımızda Python kurulu olmalıdır. [Şuradan](https://www.python.org/downloads/) indirebilirsiniz.
-* Python IDE'si olarak Pycharm EDU kullanıldı. [Şuradan](https://www.jetbrains.com/pycharm-edu/) indilerbilirsiniz.
+* Since our code is written in Python, you need to have Python installed on your computer. You can download it [here](https://www.python.org/downloads/).
+* PyCharm EDU was used as the Python IDE. You can download it [here](https://www.jetbrains.com/pycharm-edu/).
 
-Gerekli programları kurduktan sonra sıra kullanacağımız kütüphanelerde. İster Pycharm kullanarak istersekte komut istemini kullanarak kütüphanlerimizi kurabilir. Burada komut istemi kullanılarak kurulumlar yapılacaktır.
-Kurulumların yapılabilmesi için bilgisayarımızda <b>pip</b> in kurulu olması gereklidir.
+Once the necessary programs are installed, it's time to set up the required libraries. You can install these libraries either using PyCharm or via the command line. The installation instructions below will use the command line. Make sure that `pip` is installed on your computer.
 
-* Öncelikle teknik analizlerimizi hesaplarken kullanacağımı TA-Lib kütüphanesini kuralım. Aşağıdaki kodu kullanın.
+* First, let's install the TA-Lib library, which we will use for calculating our technical analysis. Use the command below:
 
 ```sh
   pip install TA_Lib-0.4.20-cp38-cp38-win_amd64.whl
   ```
   
- * Sırada <b>numpy</b> kütüphanemiz var.
+* Next, install the `numpy` library:
 
 ```sh
   pip install numpy
   ```
   
- * Telegram botumuz için <b>pyTelegramBotApi</b>
+* For the Telegram bot, install the `pyTelegramBotApi` library:
 
 ```sh
   pip install pyTelegramBotApi
   ```
   
- * Ve tabi en önemlisi verileri çekeceğimiz <b>Binance Api</b>'si
+* And most importantly, install the `Binance API` to fetch the data:
 
 ```sh
   pip install python-binance
   ```
   
- Kütüphne kurulumlarını yaptığımıza göre artık programı kullanmaya hazırsınız. 
+With the library installations complete, you're now ready to use the program.
